@@ -7,8 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D25CFC4CB67588907BFF39EF /* Pods_FrontDeskApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 377DC429A061A0E3245ED4C9 /* Pods_FrontDeskApp.framework */; };
+		FB97B98420DBCD9B00E33D7D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB97B98320DBCD9B00E33D7D /* GoogleService-Info.plist */; };
+		FB97B98A20DC3C4600E33D7D /* UnemploymentConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB97B98920DC3C4600E33D7D /* UnemploymentConfirmViewController.swift */; };
 		FB993A6420DAA27F00BA10B6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB993A6320DAA27F00BA10B6 /* User.swift */; };
-		FB993A6620DAA54E00BA10B6 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB993A6520DAA54E00BA10B6 /* Database.swift */; };
+		FB9C74C620DADECA0058E49D /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = FB9C74C520DADEC90058E49D /* Podfile */; };
+		FB9C74CF20DADF060058E49D /* Package.resolved in Resources */ = {isa = PBXBuildFile; fileRef = FB9C74C720DADF010058E49D /* Package.resolved */; };
+		FB9C74D220DADF060058E49D /* Tests in Resources */ = {isa = PBXBuildFile; fileRef = FB9C74CA20DADF020058E49D /* Tests */; };
+		FB9C74D320DADF060058E49D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FB9C74CB20DADF030058E49D /* README.md */; };
+		FB9C74D420DADF060058E49D /* FrontDeskAppTests in Resources */ = {isa = PBXBuildFile; fileRef = FB9C74CC20DADF030058E49D /* FrontDeskAppTests */; };
+		FB9C74D520DADF060058E49D /* Sources in Resources */ = {isa = PBXBuildFile; fileRef = FB9C74CD20DADF040058E49D /* Sources */; };
+		FB9C74D620DADF060058E49D /* FrontDeskAppUITests in Resources */ = {isa = PBXBuildFile; fileRef = FB9C74CE20DADF050058E49D /* FrontDeskAppUITests */; };
 		FBDC3E3720D9860300D7928E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDC3E3620D9860300D7928E /* AppDelegate.swift */; };
 		FBDC3E3920D9860300D7928E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDC3E3820D9860300D7928E /* ViewController.swift */; };
 		FBDC3E3C20D9860300D7928E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBDC3E3A20D9860300D7928E /* Main.storyboard */; };
@@ -37,8 +46,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15B0C83C1DDD5EC9061EC877 /* Pods-FrontDeskApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FrontDeskApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FrontDeskApp/Pods-FrontDeskApp.release.xcconfig"; sourceTree = "<group>"; };
+		24EAAF3407D11F52F35A6D3D /* Pods-FrontDeskApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FrontDeskApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FrontDeskApp/Pods-FrontDeskApp.debug.xcconfig"; sourceTree = "<group>"; };
+		377DC429A061A0E3245ED4C9 /* Pods_FrontDeskApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FrontDeskApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB97B98320DBCD9B00E33D7D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FB97B98920DC3C4600E33D7D /* UnemploymentConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnemploymentConfirmViewController.swift; sourceTree = "<group>"; };
 		FB993A6320DAA27F00BA10B6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		FB993A6520DAA54E00BA10B6 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		FB9C74C520DADEC90058E49D /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		FB9C74C720DADF010058E49D /* Package.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Package.resolved; sourceTree = "<group>"; };
+		FB9C74CA20DADF020058E49D /* Tests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Tests; sourceTree = "<group>"; };
+		FB9C74CB20DADF030058E49D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		FB9C74CC20DADF030058E49D /* FrontDeskAppTests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FrontDeskAppTests; sourceTree = "<group>"; };
+		FB9C74CD20DADF040058E49D /* Sources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sources; sourceTree = "<group>"; };
+		FB9C74CE20DADF050058E49D /* FrontDeskAppUITests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FrontDeskAppUITests; sourceTree = "<group>"; };
+		FB9C74D720DAE93A0058E49D /* FrontDeskApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FrontDeskApp.entitlements; sourceTree = "<group>"; };
 		FBDC3E3320D9860300D7928E /* FrontDeskApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FrontDeskApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBDC3E3620D9860300D7928E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBDC3E3820D9860300D7928E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D25CFC4CB67588907BFF39EF /* Pods_FrontDeskApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,13 +102,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0EA45DBA6C7CB0F16A009810 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				24EAAF3407D11F52F35A6D3D /* Pods-FrontDeskApp.debug.xcconfig */,
+				15B0C83C1DDD5EC9061EC877 /* Pods-FrontDeskApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8D7EA089A49D752A67BB9AA8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				377DC429A061A0E3245ED4C9 /* Pods_FrontDeskApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FBDC3E2A20D9860300D7928E = {
 			isa = PBXGroup;
 			children = (
+				FB9C74C520DADEC90058E49D /* Podfile */,
 				FBDC3E3520D9860300D7928E /* FrontDeskApp */,
 				FBDC3E4A20D9860400D7928E /* FrontDeskAppTests */,
 				FBDC3E5520D9860400D7928E /* FrontDeskAppUITests */,
+				FB9C74CC20DADF030058E49D /* FrontDeskAppTests */,
+				FB9C74CE20DADF050058E49D /* FrontDeskAppUITests */,
+				FB9C74C720DADF010058E49D /* Package.resolved */,
+				FB9C74CB20DADF030058E49D /* README.md */,
+				FB9C74CD20DADF040058E49D /* Sources */,
+				FB9C74CA20DADF020058E49D /* Tests */,
 				FBDC3E3420D9860300D7928E /* Products */,
+				0EA45DBA6C7CB0F16A009810 /* Pods */,
+				8D7EA089A49D752A67BB9AA8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,11 +151,13 @@
 		FBDC3E3520D9860300D7928E /* FrontDeskApp */ = {
 			isa = PBXGroup;
 			children = (
-				FB993A6520DAA54E00BA10B6 /* Database.swift */,
+				FB97B98320DBCD9B00E33D7D /* GoogleService-Info.plist */,
+				FB9C74D720DAE93A0058E49D /* FrontDeskApp.entitlements */,
 				FBDC3E3620D9860300D7928E /* AppDelegate.swift */,
 				FBDC3E3820D9860300D7928E /* ViewController.swift */,
 				FBDFC4A220D990DD007B4C18 /* UnemploymentViewController.swift */,
 				FBDC3E3A20D9860300D7928E /* Main.storyboard */,
+				FB97B98920DC3C4600E33D7D /* UnemploymentConfirmViewController.swift */,
 				FBDC3E3D20D9860400D7928E /* Assets.xcassets */,
 				FBDC3E3F20D9860400D7928E /* LaunchScreen.storyboard */,
 				FBDC3E4220D9860400D7928E /* Info.plist */,
@@ -141,9 +191,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FBDC3E5B20D9860400D7928E /* Build configuration list for PBXNativeTarget "FrontDeskApp" */;
 			buildPhases = (
+				E68D273CAB9E30A429B12444 /* [CP] Check Pods Manifest.lock */,
 				FBDC3E2F20D9860300D7928E /* Sources */,
 				FBDC3E3020D9860300D7928E /* Frameworks */,
 				FBDC3E3120D9860300D7928E /* Resources */,
+				097A914900D1178F50F79D2B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -202,6 +254,11 @@
 				TargetAttributes = {
 					FBDC3E3220D9860300D7928E = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+						};
 					};
 					FBDC3E4620D9860400D7928E = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -239,8 +296,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBDC3E4120D9860400D7928E /* LaunchScreen.storyboard in Resources */,
+				FB9C74D220DADF060058E49D /* Tests in Resources */,
+				FB9C74D620DADF060058E49D /* FrontDeskAppUITests in Resources */,
+				FB9C74CF20DADF060058E49D /* Package.resolved in Resources */,
 				FBDC3E3E20D9860400D7928E /* Assets.xcassets in Resources */,
+				FB9C74C620DADECA0058E49D /* Podfile in Resources */,
+				FB9C74D320DADF060058E49D /* README.md in Resources */,
+				FB9C74D420DADF060058E49D /* FrontDeskAppTests in Resources */,
+				FB97B98420DBCD9B00E33D7D /* GoogleService-Info.plist in Resources */,
 				FBDC3E3C20D9860300D7928E /* Main.storyboard in Resources */,
+				FB9C74D520DADF060058E49D /* Sources in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +325,51 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		097A914900D1178F50F79D2B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FrontDeskApp/Pods-FrontDeskApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FrontDeskApp/Pods-FrontDeskApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E68D273CAB9E30A429B12444 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FrontDeskApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FBDC3E2F20D9860300D7928E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -267,8 +377,8 @@
 			files = (
 				FB993A6420DAA27F00BA10B6 /* User.swift in Sources */,
 				FBDFC4A320D990DD007B4C18 /* UnemploymentViewController.swift in Sources */,
+				FB97B98A20DC3C4600E33D7D /* UnemploymentConfirmViewController.swift in Sources */,
 				FBDC3E3920D9860300D7928E /* ViewController.swift in Sources */,
-				FB993A6620DAA54E00BA10B6 /* Database.swift in Sources */,
 				FBDC3E3720D9860300D7928E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,6 +550,7 @@
 		};
 		FBDC3E5C20D9860400D7928E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24EAAF3407D11F52F35A6D3D /* Pods-FrontDeskApp.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -450,7 +561,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = CareerLink.FrontDeskApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CareerLink.FrontDeskApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -459,6 +570,7 @@
 		};
 		FBDC3E5D20D9860400D7928E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15B0C83C1DDD5EC9061EC877 /* Pods-FrontDeskApp.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -469,7 +581,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = CareerLink.FrontDeskApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.CareerLink.FrontDeskApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 2;

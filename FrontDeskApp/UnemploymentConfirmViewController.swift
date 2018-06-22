@@ -7,15 +7,23 @@
 //
 
 import UIKit
+import FirebaseDatabase
+
 
 class UnemploymentConfirmViewController: UIViewController {
-
+    var userRef: DatabaseReference?
+    
+    @IBOutlet weak var computerSwitch: UISwitch!
+    @IBOutlet weak var UCSwitch: UISwitch!
+    @IBOutlet weak var faxSwitch: UISwitch!
+    @IBOutlet weak var appoitmentSwitch: UISwitch!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -31,5 +39,22 @@ class UnemploymentConfirmViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    @IBAction func Continue(_ sender: Any) {
+        if computerSwitch.isOn {
+            userRef?.setValue(["computer": "true"])
+        }
+        if UCSwitch.isOn {
+            userRef?.setValue(["UCPhone": "true"])
+        }
+        if faxSwitch.isOn{
+            userRef?.setValue(["fax": "true"])
+        }
+        if appoitmentSwitch.isOn{
+            userRef?.setValue(["appoitment": "true"])
+        }
+    }
+    
+    
+    
 }

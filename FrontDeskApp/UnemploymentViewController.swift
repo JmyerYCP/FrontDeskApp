@@ -33,7 +33,7 @@ class UnemploymentViewController: UIViewController  {
     @IBOutlet var stack: UIStackView!
     var user: User!
     var rootRef = Database.database().reference()
-    
+    var userRef: DatabaseReference!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -117,7 +117,7 @@ class UnemploymentViewController: UIViewController  {
         let clastName = lastNameTextField.text
         let cparticipantNumber = participantNumberTextField.text
         let cticketNumber = ticketNumberTextField.text
-        let userRef = rootRef.child("UCList").childByAutoId()
+        userRef = rootRef.child("UCList").childByAutoId()
         userRef.setValue(["firstName": cfirstName, "lastName": clastName, "participantNumber": cparticipantNumber, "ticketNumber": cticketNumber, "date": date, "time": time])
         performSegue(withIdentifier: "UCConfirmSegue", sender: self)
         
@@ -131,8 +131,15 @@ class UnemploymentViewController: UIViewController  {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if let destinationViewController = segue.destination as? UnemploymentConfirmViewController {
+            destinationViewController.userRef = userRef
+        }
+    }
 }
+
+
 
 extension UnemploymentViewController: UITextFieldDelegate {
     

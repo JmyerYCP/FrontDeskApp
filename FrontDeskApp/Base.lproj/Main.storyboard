@@ -178,10 +178,10 @@
             </objects>
             <point key="canvasLocation" x="816.2109375" y="118.75"/>
         </scene>
-        <!--View Controller-->
+        <!--Unemployment Confirm View Controller-->
         <scene sceneID="yHL-nb-KPj">
             <objects>
-                <viewController id="BG5-ew-6YG" sceneMemberID="viewController">
+                <viewController id="BG5-ew-6YG" customClass="UnemploymentConfirmViewController" customModule="FrontDeskApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="etz-DH-mNa">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

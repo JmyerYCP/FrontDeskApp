@@ -117,7 +117,8 @@ class UnemploymentViewController: UIViewController  {
         let clastName = lastNameTextField.text
         let cparticipantNumber = participantNumberTextField.text
         let cticketNumber = ticketNumberTextField.text
-        rootRef.child("UCList").childByAutoId().setValue(["firstName": cfirstName, "lastName": clastName, "participantNumber": cparticipantNumber, "ticketNumber": cticketNumber, "date": date, "time": time])
+        let userRef = rootRef.child("UCList").childByAutoId()
+        userRef.setValue(["firstName": cfirstName, "lastName": clastName, "participantNumber": cparticipantNumber, "ticketNumber": cticketNumber, "date": date, "time": time])
         performSegue(withIdentifier: "UCConfirmSegue", sender: self)
         
     }

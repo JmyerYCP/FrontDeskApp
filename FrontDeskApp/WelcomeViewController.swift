@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class WelcomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +20,8 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func goToUnemployment(_ sender: Any) {
-        performSegue(withIdentifier: "UCSegue", sender: self)
+    @IBAction func goToSignIn(_ sender: Any) {
+        performSegue(withIdentifier: "SignInSegue", sender: self)
     }
     
 }

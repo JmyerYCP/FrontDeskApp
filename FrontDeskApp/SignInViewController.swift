@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseDatabase
 
-class UnemploymentViewController: UIViewController  {
+class SignInViewController: UIViewController  {
     
 
     
@@ -21,16 +21,20 @@ class UnemploymentViewController: UIViewController  {
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var participantNumberTextField: UITextField!
-    @IBOutlet weak var ticketNumberTextField: UITextField!
+    @IBOutlet weak var over54Switch: UISwitch!
+    @IBOutlet weak var under22Switch: UISwitch!
+    @IBOutlet weak var earnSwitch: UISwitch!
+    @IBOutlet weak var exOffenderSwitch: UISwitch!
+    @IBOutlet weak var prepSwitch: UISwitch!
+    @IBOutlet weak var last12Months: UISwitch!
+
     
     @IBOutlet var firstNameValidationLabel: UILabel!
     @IBOutlet var lastNameValidationLabel: UILabel!
     @IBOutlet var participantNumberValidationLabel: UILabel!
-    @IBOutlet var ticketNumberValidationLabel: UILabel!
     
     @IBOutlet var textFields: [UITextField]!
     @IBOutlet var continueButton: UIButton!
-    @IBOutlet var stack: UIStackView!
     var user: User!
     var rootRef = Database.database().reference()
     var userRef: DatabaseReference!
@@ -40,6 +44,12 @@ class UnemploymentViewController: UIViewController  {
         // Setup View
         setupView()
         firstNameTextField.becomeFirstResponder()
+        over54Switch.setOn(false, animated: false)
+        under22Switch.setOn(false, animated: false)
+        earnSwitch.setOn(false, animated: false)
+        exOffenderSwitch.setOn(false, animated: false)
+        prepSwitch.setOn(false, animated: false)
+        last12Months.setOn(false, animated: false)
         // Register View Controller as Observer
         NotificationCenter.default.addObserver(self, selector: #selector(textDidChange(_:)), name: Notification.Name.UITextFieldTextDidChange, object: nil)
     }
@@ -52,8 +62,7 @@ class UnemploymentViewController: UIViewController  {
         lastNameValidationLabel.sizeToFit()
         participantNumberValidationLabel.isHidden = true
         participantNumberValidationLabel.sizeToFit()
-        ticketNumberValidationLabel.isHidden = true
-        ticketNumberValidationLabel.sizeToFit()
+
         // Configure Continue Button
         continueButton.isEnabled = false
     }
@@ -93,11 +102,8 @@ class UnemploymentViewController: UIViewController  {
         else if textField == lastNameTextField{
             message = "This field cannot be empty. Please enter your last name"
         }
-        else if textField == participantNumberTextField{
+        else {
             message = "This field cannot be empty. Please enter your participant number. If you don't know your number, please see the front desk for assistance."
-        }
-        else{
-            message = "This field cannot be empty. Please enter your ticket number."
         }
         return (text.count > 0, message)
     }
@@ -116,10 +122,14 @@ class UnemploymentViewController: UIViewController  {
         let cfirstName = firstNameTextField.text
         let clastName = lastNameTextField.text
         let cparticipantNumber = participantNumberTextField.text
-        let cticketNumber = ticketNumberTextField.text
-        userRef = rootRef.child("UCList").childByAutoId()
-        userRef.setValue(["firstName": cfirstName, "lastName": clastName, "participantNumber": cparticipantNumber, "ticketNumber": cticketNumber, "date": date, "time": time])
-        performSegue(withIdentifier: "UCConfirmSegue", sender: self)
+        userRef = rootRef.child("Users").childByAutoId()
+        
+        // enter Data into Database
+        userRef.setValue(["firstName": cfirstName, "lastName": clastName, "participantNumber": cparticipantNumber, "date": date, "time": time])
+        userRef.child("userData").setValue(["over54": String(over54Switch.isOn), "under22": String(under22Switch.isOn), "earn": String(earnSwitch.isOn), "exOffender": String(exOffenderSwitch.isOn), "prep": String(prepSwitch.isOn), "last12Months": String(last12Months.isOn)])
+        
+        performSegue(withIdentifier: "UserDataSegue", sender: self)
+        
         
     }
     /*
@@ -133,7 +143,7 @@ class UnemploymentViewController: UIViewController  {
     */
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        if let destinationViewController = segue.destination as? UnemploymentConfirmViewController {
+        if let destinationViewController = segue.destination as? UserDataViewController {
             destinationViewController.userRef = userRef
         }
     }
@@ -141,7 +151,7 @@ class UnemploymentViewController: UIViewController  {
 
 
 
-extension UnemploymentViewController: UITextFieldDelegate {
+extension SignInViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField{
@@ -177,12 +187,13 @@ extension UnemploymentViewController: UITextFieldDelegate {
                 self.lastNameValidationLabel.isHidden = valid
             })
             
-        case participantNumberTextField:
+        
+        default:
             // Validate Text Field
             let (valid, message) = validate(textField)
             
             if valid {
-                ticketNumberTextField.becomeFirstResponder()
+                participantNumberTextField.becomeFirstResponder()
             }
             
             // Update Validation Label
@@ -191,21 +202,6 @@ extension UnemploymentViewController: UITextFieldDelegate {
             // Show/Hide Validation Label
             UIView.animate(withDuration: 0.25, animations: {
                 self.participantNumberValidationLabel.isHidden = valid
-            })
-        default:
-            // Validate Text Field
-            let (valid, message) = validate(textField)
-            
-            if valid {
-                ticketNumberTextField.becomeFirstResponder()
-            }
-            
-            // Update Validation Label
-            self.ticketNumberValidationLabel.text = message
-            
-            // Show/Hide Validation Label
-            UIView.animate(withDuration: 0.25, animations: {
-                self.ticketNumberValidationLabel.isHidden = valid
             })
             
         }

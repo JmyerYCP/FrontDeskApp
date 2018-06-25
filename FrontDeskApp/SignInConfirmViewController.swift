@@ -1,34 +1,28 @@
 //
-//  UnemploymentConfirmViewController.swift
+//  SignInConfirmViewController.swift
 //  FrontDeskApp
 //
-//  Created by Jon Myer on 6/21/18.
+//  Created by Jon Myer on 6/25/18.
 //  Copyright © 2018 Jonathan Myer. All rights reserved.
 //
 
 import UIKit
 import FirebaseDatabase
 
-
-class UnemploymentConfirmViewController: UIViewController {
+class SignInConfirmViewController: UIViewController {
     var userRef: DatabaseReference?
-    
-    @IBOutlet weak var computerSwitch: UISwitch!
-    @IBOutlet weak var UCSwitch: UISwitch!
-    @IBOutlet weak var faxSwitch: UISwitch!
-    @IBOutlet weak var appoitmentSwitch: UISwitch!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    //TODO: Set up more stuff to confirm what options they selected.
 
     /*
     // MARK: - Navigation
@@ -39,22 +33,7 @@ class UnemploymentConfirmViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    @IBAction func Continue(_ sender: Any) {
-        if computerSwitch.isOn {
-            userRef?.setValue(["computer": "true"])
-        }
-        if UCSwitch.isOn {
-            userRef?.setValue(["UCPhone": "true"])
-        }
-        if faxSwitch.isOn{
-            userRef?.setValue(["fax": "true"])
-        }
-        if appoitmentSwitch.isOn{
-            userRef?.setValue(["appoitment": "true"])
-        }
+    @IBAction func FinishedButton(_ sender: Any) {
+        performSegue(withIdentifier: "ReturnToWelcomeSegue", sender: self)
     }
-    
-    
-    
 }

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		D25CFC4CB67588907BFF39EF /* Pods_FrontDeskApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 377DC429A061A0E3245ED4C9 /* Pods_FrontDeskApp.framework */; };
 		FB97B98420DBCD9B00E33D7D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB97B98320DBCD9B00E33D7D /* GoogleService-Info.plist */; };
-		FB97B98A20DC3C4600E33D7D /* UnemploymentConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB97B98920DC3C4600E33D7D /* UnemploymentConfirmViewController.swift */; };
+		FB97B98A20DC3C4600E33D7D /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB97B98920DC3C4600E33D7D /* OptionsViewController.swift */; };
 		FB993A6420DAA27F00BA10B6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB993A6320DAA27F00BA10B6 /* User.swift */; };
 		FB9C74C620DADECA0058E49D /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = FB9C74C520DADEC90058E49D /* Podfile */; };
 		FB9C74CF20DADF060058E49D /* Package.resolved in Resources */ = {isa = PBXBuildFile; fileRef = FB9C74C720DADF010058E49D /* Package.resolved */; };
@@ -18,14 +18,16 @@
 		FB9C74D420DADF060058E49D /* FrontDeskAppTests in Resources */ = {isa = PBXBuildFile; fileRef = FB9C74CC20DADF030058E49D /* FrontDeskAppTests */; };
 		FB9C74D520DADF060058E49D /* Sources in Resources */ = {isa = PBXBuildFile; fileRef = FB9C74CD20DADF040058E49D /* Sources */; };
 		FB9C74D620DADF060058E49D /* FrontDeskAppUITests in Resources */ = {isa = PBXBuildFile; fileRef = FB9C74CE20DADF050058E49D /* FrontDeskAppUITests */; };
+		FBCE798420E11E6A0042C070 /* SignInConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCE798320E11E6A0042C070 /* SignInConfirmViewController.swift */; };
+		FBCE798620E167AA0042C070 /* UserDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCE798520E167AA0042C070 /* UserDataViewController.swift */; };
 		FBDC3E3720D9860300D7928E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDC3E3620D9860300D7928E /* AppDelegate.swift */; };
-		FBDC3E3920D9860300D7928E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDC3E3820D9860300D7928E /* ViewController.swift */; };
+		FBDC3E3920D9860300D7928E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDC3E3820D9860300D7928E /* WelcomeViewController.swift */; };
 		FBDC3E3C20D9860300D7928E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBDC3E3A20D9860300D7928E /* Main.storyboard */; };
 		FBDC3E3E20D9860400D7928E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBDC3E3D20D9860400D7928E /* Assets.xcassets */; };
 		FBDC3E4120D9860400D7928E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBDC3E3F20D9860400D7928E /* LaunchScreen.storyboard */; };
 		FBDC3E4C20D9860400D7928E /* FrontDeskAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDC3E4B20D9860400D7928E /* FrontDeskAppTests.swift */; };
 		FBDC3E5720D9860400D7928E /* FrontDeskAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDC3E5620D9860400D7928E /* FrontDeskAppUITests.swift */; };
-		FBDFC4A320D990DD007B4C18 /* UnemploymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDFC4A220D990DD007B4C18 /* UnemploymentViewController.swift */; };
+		FBDFC4A320D990DD007B4C18 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDFC4A220D990DD007B4C18 /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +52,7 @@
 		24EAAF3407D11F52F35A6D3D /* Pods-FrontDeskApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FrontDeskApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FrontDeskApp/Pods-FrontDeskApp.debug.xcconfig"; sourceTree = "<group>"; };
 		377DC429A061A0E3245ED4C9 /* Pods_FrontDeskApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FrontDeskApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB97B98320DBCD9B00E33D7D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		FB97B98920DC3C4600E33D7D /* UnemploymentConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnemploymentConfirmViewController.swift; sourceTree = "<group>"; };
+		FB97B98920DC3C4600E33D7D /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		FB993A6320DAA27F00BA10B6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FB9C74C520DADEC90058E49D /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		FB9C74C720DADF010058E49D /* Package.resolved */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Package.resolved; sourceTree = "<group>"; };
@@ -60,9 +62,11 @@
 		FB9C74CD20DADF040058E49D /* Sources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sources; sourceTree = "<group>"; };
 		FB9C74CE20DADF050058E49D /* FrontDeskAppUITests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FrontDeskAppUITests; sourceTree = "<group>"; };
 		FB9C74D720DAE93A0058E49D /* FrontDeskApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FrontDeskApp.entitlements; sourceTree = "<group>"; };
+		FBCE798320E11E6A0042C070 /* SignInConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInConfirmViewController.swift; sourceTree = "<group>"; };
+		FBCE798520E167AA0042C070 /* UserDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataViewController.swift; sourceTree = "<group>"; };
 		FBDC3E3320D9860300D7928E /* FrontDeskApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FrontDeskApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBDC3E3620D9860300D7928E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FBDC3E3820D9860300D7928E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FBDC3E3820D9860300D7928E /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		FBDC3E3B20D9860300D7928E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FBDC3E3D20D9860400D7928E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FBDC3E4020D9860400D7928E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -73,7 +77,7 @@
 		FBDC3E5220D9860400D7928E /* FrontDeskAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FrontDeskAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBDC3E5620D9860400D7928E /* FrontDeskAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontDeskAppUITests.swift; sourceTree = "<group>"; };
 		FBDC3E5820D9860400D7928E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FBDFC4A220D990DD007B4C18 /* UnemploymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnemploymentViewController.swift; sourceTree = "<group>"; };
+		FBDFC4A220D990DD007B4C18 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,14 +158,16 @@
 				FB97B98320DBCD9B00E33D7D /* GoogleService-Info.plist */,
 				FB9C74D720DAE93A0058E49D /* FrontDeskApp.entitlements */,
 				FBDC3E3620D9860300D7928E /* AppDelegate.swift */,
-				FBDC3E3820D9860300D7928E /* ViewController.swift */,
-				FBDFC4A220D990DD007B4C18 /* UnemploymentViewController.swift */,
+				FBDC3E3820D9860300D7928E /* WelcomeViewController.swift */,
+				FBDFC4A220D990DD007B4C18 /* SignInViewController.swift */,
 				FBDC3E3A20D9860300D7928E /* Main.storyboard */,
-				FB97B98920DC3C4600E33D7D /* UnemploymentConfirmViewController.swift */,
+				FB97B98920DC3C4600E33D7D /* OptionsViewController.swift */,
 				FBDC3E3D20D9860400D7928E /* Assets.xcassets */,
 				FBDC3E3F20D9860400D7928E /* LaunchScreen.storyboard */,
 				FBDC3E4220D9860400D7928E /* Info.plist */,
 				FB993A6320DAA27F00BA10B6 /* User.swift */,
+				FBCE798320E11E6A0042C070 /* SignInConfirmViewController.swift */,
+				FBCE798520E167AA0042C070 /* UserDataViewController.swift */,
 			);
 			path = FrontDeskApp;
 			sourceTree = "<group>";
@@ -376,9 +382,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB993A6420DAA27F00BA10B6 /* User.swift in Sources */,
-				FBDFC4A320D990DD007B4C18 /* UnemploymentViewController.swift in Sources */,
-				FB97B98A20DC3C4600E33D7D /* UnemploymentConfirmViewController.swift in Sources */,
-				FBDC3E3920D9860300D7928E /* ViewController.swift in Sources */,
+				FBDFC4A320D990DD007B4C18 /* SignInViewController.swift in Sources */,
+				FB97B98A20DC3C4600E33D7D /* OptionsViewController.swift in Sources */,
+				FBCE798620E167AA0042C070 /* UserDataViewController.swift in Sources */,
+				FBCE798420E11E6A0042C070 /* SignInConfirmViewController.swift in Sources */,
+				FBDC3E3920D9860300D7928E /* WelcomeViewController.swift in Sources */,
 				FBDC3E3720D9860300D7928E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

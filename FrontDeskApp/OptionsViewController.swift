@@ -49,8 +49,13 @@ class OptionsViewController: UIViewController {
         userRef?.child("reasonForVisit").setValue(["computer": String(computerSwitch.isOn), "UCPhone": String(UCSwitch.isOn), "faxOrCopy": String(faxSwitch.isOn), "appointment": String(appointmentSwitch.isOn)])
         
         //TODO: Do something heree to confirm which appoitment and send a notification to the person. (will require setting up an appoitment system along with admin settings or something).
-        
-        performSegue(withIdentifier: "SignInConfirmSegue", sender: self)
+        if computerSwitch.isOn == true {
+            performSegue(withIdentifier: "questionnaireSegue", sender: self)
+
+        } else{
+            performSegue(withIdentifier: "SignInConfirmSegue", sender: self)
+
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){

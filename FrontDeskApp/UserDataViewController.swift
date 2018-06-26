@@ -88,6 +88,15 @@ class UserDataViewController: UIViewController {
         }
     }
     @IBAction func ContinueButton(_ sender: Any) {
+        if veteranSwitch.isOn == true {
+            let cmilitaryBranch = militaryBranch.text
+            let cdisabilityPercent = disabilityPercent.text
+            userRef?.child("veteranData").setValue(["veteran": String(veteranSwitch.isOn), "militaryBranch": cmilitaryBranch, "disabilityPercent": cdisabilityPercent, "medal": String(medalSwitch.isOn), "serviceAfter910": String(activeAfter910Switch.isOn)])
+        }
+        let cemployerName = employerName.text
+        userRef?.child("employmentData").setValue(["currentlyEmployed": String(employedSwitch.isOn), "lastOrCurrentEmployer": cemployerName, "noticeOfTermination": String(noticeOfTerminationSwitch.isOn), "noticeOfCompanyClosing": String(noticeOfCompanyClosingSwitch.isOn)])
+        userRef?.child("UCData").setValue(["received": String(receivingSwitch.isOn), "exhausted": String(exhaustedSwitch.isOn), "notEligible": String(notEligibleSwitch.isOn), "didNotApply": String(didNotApplySwitch.isOn)])
+        
         performSegue(withIdentifier: "OptionsSegue", sender: self)
     }
     

@@ -43,32 +43,52 @@ class OptionsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    func doesUserNeedToDoQuestionnaire (participationNumber: String) -> Bool {
-        rootRef.child("users").child("questionnaire").observeSingleEvent(of: .value, with: { (snapshot) in
+    func doesUserNeedToDoQuestionnaire () -> Bool { // queries the database to get all instances of given participation number, then checks to see if there has been a questionnaire filled out in the last 6 months. if so it returns false. if not returns true
+        var isDateOld = true
+        let currentDate = Date()
+        var dateComponent = DateComponents()
+        dateComponent.month = -6
+        let sixMonthsAgoDate = Calendar.current.date(byAdding: dateComponent, to: currentDate)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"
+        userRef?.observeSingleEvent(of: .value, with: { snapshot in
             let value = snapshot.value as? NSDictionary
-            let questionnaireDate = value?["questionnaireDate"] as? String ?? ""
-            
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"
-            let date = dateFormatter.date(from: questionnaireDate)
-            
-            
-            let currentDateTime = Date()
-            
+            let participantNumber = value?["participantNumber"] as? String ?? ""
+            print("Your participantNumber is: " + participantNumber)
+            self.rootRef.child("Users").queryOrdered(byChild: "/participantNumber").queryEqual(toValue: participantNumber).observeSingleEvent(of: .value, with: { (snapshot) in
+                print("hello world \(snapshot.childrenCount  )")
+                for child in snapshot.children {
+                    print("hello world")
+                    let snap = child as! DataSnapshot
+                    let dict = snap.value as? NSDictionary
+                    let questionnaireDateString = dict?["questionnaire/questionnaireDate"] as? String ?? ""
+                    let questionnaireDate = dateFormatter.date(from: questionnaireDateString)
+                    print("Questionnaire Date is: " + questionnaireDateString)
+                    if questionnaireDate != nil {
+                        if questionnaireDate! > sixMonthsAgoDate! {
+                            isDateOld = false
+                            print("You don't need to take the Questionnaire")
+                        }
+                    }
+                }
             })
+        }) {(error) in
+            print(error.localizedDescription)
+        }
+        
+        print("You do need to take the Questionnaire")
+        return isDateOld
         
     }
     
     @IBAction func Continue(_ sender: Any) {
         // Update Database
         userRef?.child("reasonForVisit").setValue(["computer": String(computerSwitch.isOn), "UCPhone": String(UCSwitch.isOn), "faxOrCopy": String(faxSwitch.isOn), "appointment": String(appointmentSwitch.isOn)])
-        userRef?.observeSingleEvent(of: .value, with: { (snapshot) in
-            let value = snapshot.value as? NSDictionary
-            let userPartNumber = value?["participationNumber"] as? String ?? ""
-        })
+        
+        
         
         //TODO: Do something heree to confirm which appoitment and send a notification to the person. (will require setting up an appoitment system along with admin settings or something).
-        if computerSwitch.isOn == true{
+        if computerSwitch.isOn == true && doesUserNeedToDoQuestionnaire() == true {
             performSegue(withIdentifier: "questionnaireSegue", sender: self)
 
         } else{

@@ -91,8 +91,11 @@ class QuestionnaireViewController: UIViewController {
     */
     
     @IBAction func continueButtonAction(_ sender: Any) {
-        
-        
+        let currentDate = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"
+        let currentDateString = formatter.string(from: currentDate)
+        userRef?.child("questionnaire").setValue(["questionnaireDate": currentDateString])
         
         
         

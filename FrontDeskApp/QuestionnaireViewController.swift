@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class QuestionnaireViewController: UIViewController {
 
-
+    var userRef: DatabaseReference?
+    var rootRef = Database.database().reference()
     @IBOutlet weak var displacedHomemakerSwitch: UISwitch!
     @IBOutlet weak var TANFSwitch: UISwitch!
     @IBOutlet weak var TANFTextField: UITextField!
@@ -87,5 +89,13 @@ class QuestionnaireViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    @IBAction func continueButtonAction(_ sender: Any) {
+        
+        
+        
+        
+        
+    }
+    
 }

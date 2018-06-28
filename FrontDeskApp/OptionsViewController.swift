@@ -9,7 +9,6 @@
 import UIKit
 import FirebaseDatabase
 
-
 class OptionsViewController: UIViewController {
     var userRef: DatabaseReference?
     var rootRef = Database.database().reference()
@@ -17,6 +16,7 @@ class OptionsViewController: UIViewController {
     @IBOutlet weak var UCSwitch: UISwitch!
     @IBOutlet weak var faxSwitch: UISwitch!
     @IBOutlet weak var appointmentSwitch: UISwitch!
+    var userQuestionnaire = true
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,6 +25,7 @@ class OptionsViewController: UIViewController {
         UCSwitch.setOn(false, animated:false)
         faxSwitch.setOn(false, animated:false)
         appointmentSwitch.setOn(false, animated:false)
+        doesUserNeedToDoQuestionnaire()
     }
 
     
@@ -43,7 +44,7 @@ class OptionsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    func doesUserNeedToDoQuestionnaire () -> Bool { // queries the database to get all instances of given participation number, then checks to see if there has been a questionnaire filled out in the last 6 months. if so it returns false. if not returns true
+    func doesUserNeedToDoQuestionnaire () { // queries the database to get all instances of given participation number, then checks to see if there has been a questionnaire filled out in the last 6 months. if so it returns false. if not returns true
         var isDateOld = true
         let currentDate = Date()
         var dateComponent = DateComponents()
@@ -56,28 +57,31 @@ class OptionsViewController: UIViewController {
             let participantNumber = value?["participantNumber"] as? String ?? ""
             print("Your participantNumber is: " + participantNumber)
             self.rootRef.child("Users").queryOrdered(byChild: "/participantNumber").queryEqual(toValue: participantNumber).observeSingleEvent(of: .value, with: { (snapshot) in
-                print("hello world \(snapshot.childrenCount  )")
-                for child in snapshot.children {
-                    print("hello world")
-                    let snap = child as! DataSnapshot
-                    let dict = snap.value as? NSDictionary
-                    let questionnaireDateString = dict?["questionnaire/questionnaireDate"] as? String ?? ""
+                print("Snapshot: " + "\(snapshot)")
+                
+                for child in snapshot.children.allObjects as! [DataSnapshot] {
+                    print("Child: \(child)")
+                    let valueA = child.childSnapshot(forPath: "questionnaire")
+                    print("Child ValueA: \(valueA)")
+                    let valueB = valueA.value as? NSDictionary
+                    let questionnaireDateString = valueB?["questionnaireDate"] as? String ?? ""
                     let questionnaireDate = dateFormatter.date(from: questionnaireDateString)
                     print("Questionnaire Date is: " + questionnaireDateString)
                     if questionnaireDate != nil {
                         if questionnaireDate! > sixMonthsAgoDate! {
                             isDateOld = false
-                            print("You don't need to take the Questionnaire")
+                            
                         }
                     }
                 }
+                self.userQuestionnaire = isDateOld
             })
+            
         }) {(error) in
             print(error.localizedDescription)
         }
         
-        print("You do need to take the Questionnaire")
-        return isDateOld
+        
         
     }
     
@@ -88,7 +92,7 @@ class OptionsViewController: UIViewController {
         
         
         //TODO: Do something heree to confirm which appoitment and send a notification to the person. (will require setting up an appoitment system along with admin settings or something).
-        if computerSwitch.isOn == true && doesUserNeedToDoQuestionnaire() == true {
+        if computerSwitch.isOn == true && userQuestionnaire == true {
             performSegue(withIdentifier: "questionnaireSegue", sender: self)
 
         } else{

@@ -95,10 +95,20 @@ class QuestionnaireViewController: UIViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"
         let currentDateString = formatter.string(from: currentDate)
-        userRef?.child("questionnaire").setValue(["questionnaireDate": currentDateString])
-        
-        
+        let cTANFTextField = TANFTextField.text
+        let cgeneralAssistanceTextField = generalAssistanceTextField.text
+        let crefugeeTextField = refugeeTextField.text
+        let cSSITextField = SSITextField.text
+        let cfamilySizeTextField = familySizeTextField.text
+        userRef?.child("questionnaire").setValue(["questionnaireDate": currentDateString, "displacedHomemakerSwitch": String(displacedHomemakerSwitch.isOn), "TANFSwitch": String(TANFSwitch.isOn), "TANFTextField": cTANFTextField , "generalAssistanceTextField": cgeneralAssistanceTextField, "generalAssistanceSwitch": String(generalAssistanceSwitch.isOn), "foodStampsSwitch": String(foodStampsSwitch.isOn), "refugeeTextField": crefugeeTextField, "refugeeSwitch": String(refugeeSwitch.isOn), "SSITextField": cSSITextField, "SSISwitch": String(SSISwitch.isOn), "familySizeTextField": cfamilySizeTextField, "homelessSwitch": String(homelessSwitch.isOn), "freeLunchSwitch": String(freeLunchSwitch.isOn), "fosterChildSwitch": String(fosterChildSwitch.isOn), "disabilitySwitch": String(disabilitySwitch.isOn), "runawayYouthSwitch": String(runawayYouthSwitch.isOn), "youthHighPovertySwitch": String(youthHighPovertySwitch.isOn), "exOffenderSwitch": String(exOffenderSwitch.isOn), "englishLanguageLearnerSwitch": String(englishLanguageLearnerSwitch.isOn), "englishGrade8Switch": String(englishGrade8Switch.isOn), "unableToEnglishWorkSwitch": String(unableToEnglishWorkSwitch.isOn), "farmWorker": String(farmWorker.isOn), "exhaustingTANFSwitch": String(exhaustingTANFSwitch.isOn), "singleParentSwitch": String(singleParentSwitch.isOn), "singlePregenantWomanSwitch": String(singlePregnantWomanSwitch.isOn), "longTermUnemploymentSwitch": String(longTermUnemploymentSwitch.isOn), "culturalBarrierSwitch": String(culturalBarrierSwitch.isOn)])
+        performSegue(withIdentifier: "SignInConfirmSegue2", sender: self)
         
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if let destinationViewController = segue.destination as? SignInConfirmViewController {
+            destinationViewController.userRef = userRef
+        }
+    }
 }
+
+

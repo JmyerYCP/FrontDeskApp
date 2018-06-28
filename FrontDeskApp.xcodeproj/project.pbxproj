@@ -26,7 +26,6 @@
 		FBDC3E3C20D9860300D7928E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBDC3E3A20D9860300D7928E /* Main.storyboard */; };
 		FBDC3E3E20D9860400D7928E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBDC3E3D20D9860400D7928E /* Assets.xcassets */; };
 		FBDC3E4120D9860400D7928E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBDC3E3F20D9860400D7928E /* LaunchScreen.storyboard */; };
-		FBDC3E4C20D9860400D7928E /* FrontDeskAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDC3E4B20D9860400D7928E /* FrontDeskAppTests.swift */; };
 		FBDC3E5720D9860400D7928E /* FrontDeskAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDC3E5620D9860400D7928E /* FrontDeskAppUITests.swift */; };
 		FBDFC4A320D990DD007B4C18 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDFC4A220D990DD007B4C18 /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
@@ -74,7 +73,6 @@
 		FBDC3E4020D9860400D7928E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FBDC3E4220D9860400D7928E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FBDC3E4720D9860400D7928E /* FrontDeskAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FrontDeskAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FBDC3E4B20D9860400D7928E /* FrontDeskAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontDeskAppTests.swift; sourceTree = "<group>"; };
 		FBDC3E4D20D9860400D7928E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FBDC3E5220D9860400D7928E /* FrontDeskAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FrontDeskAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBDC3E5620D9860400D7928E /* FrontDeskAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontDeskAppUITests.swift; sourceTree = "<group>"; };
@@ -178,7 +176,6 @@
 		FBDC3E4A20D9860400D7928E /* FrontDeskAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				FBDC3E4B20D9860400D7928E /* FrontDeskAppTests.swift */,
 				FBDC3E4D20D9860400D7928E /* Info.plist */,
 			);
 			path = FrontDeskAppTests;
@@ -399,7 +396,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBDC3E4C20D9860400D7928E /* FrontDeskAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,17 +21,13 @@ class SignInViewController: UIViewController  {
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var participantNumberTextField: UITextField!
-    @IBOutlet weak var over54Switch: UISwitch!
-    @IBOutlet weak var under22Switch: UISwitch!
-    @IBOutlet weak var earnSwitch: UISwitch!
-    @IBOutlet weak var exOffenderSwitch: UISwitch!
-    @IBOutlet weak var prepSwitch: UISwitch!
-    @IBOutlet weak var last12Months: UISwitch!
-
+    @IBOutlet weak var highestEducationTextField: UITextField!
+    
     
     @IBOutlet var firstNameValidationLabel: UILabel!
     @IBOutlet var lastNameValidationLabel: UILabel!
     @IBOutlet var participantNumberValidationLabel: UILabel!
+    @IBOutlet var highestEducationValidationLabel: UILabel!
     
     @IBOutlet var textFields: [UITextField]!
     @IBOutlet var continueButton: UIButton!
@@ -43,13 +39,7 @@ class SignInViewController: UIViewController  {
 
         // Setup View
         setupView()
-        firstNameTextField.becomeFirstResponder()
-        over54Switch.setOn(false, animated: false)
-        under22Switch.setOn(false, animated: false)
-        earnSwitch.setOn(false, animated: false)
-        exOffenderSwitch.setOn(false, animated: false)
-        prepSwitch.setOn(false, animated: false)
-        last12Months.setOn(false, animated: false)
+        firstNameTextField.becomeFirstResponder
         // Register View Controller as Observer
         NotificationCenter.default.addObserver(self, selector: #selector(textDidChange(_:)), name: Notification.Name.UITextFieldTextDidChange, object: nil)
     }
@@ -62,7 +52,8 @@ class SignInViewController: UIViewController  {
         lastNameValidationLabel.sizeToFit()
         participantNumberValidationLabel.isHidden = true
         participantNumberValidationLabel.sizeToFit()
-
+        highestEducationValidationLabel.isHidden = true
+        highestEducationValidationLabel.sizeToFit()
         // Configure Continue Button
         continueButton.isEnabled = false
     }
@@ -102,6 +93,9 @@ class SignInViewController: UIViewController  {
         else if textField == lastNameTextField{
             message = "This field cannot be empty. Please enter your last name"
         }
+        else if textField == highestEducationTextField{
+            message = "This field cannot be empty. Please enter your last name"
+        }
         else {
             message = "This field cannot be empty. Please enter your participant number. If you don't know your number, please see the front desk for assistance."
         }
@@ -116,17 +110,17 @@ class SignInViewController: UIViewController  {
         formatter.dateStyle = .none
         let time = formatter.string(from: currentDateTime)
         formatter.timeStyle = .none
-        formatter.dateStyle = .short
+        formatter.dateFormat = "MM'/'dd'/'yyyy"
         let date = formatter.string(from: currentDateTime)
         
         let cfirstName = firstNameTextField.text
         let clastName = lastNameTextField.text
         let cparticipantNumber = participantNumberTextField.text
+        let chighestEducation = highestEducationTextField.text
         userRef = rootRef.child("Users").childByAutoId()
         
         // enter Data into Database
-        userRef.setValue(["firstName": cfirstName, "lastName": clastName, "participantNumber": cparticipantNumber, "date": date, "time": time])
-        userRef.child("userData").setValue(["over54": String(over54Switch.isOn), "under22": String(under22Switch.isOn), "earn": String(earnSwitch.isOn), "exOffender": String(exOffenderSwitch.isOn), "prep": String(prepSwitch.isOn), "last12Months": String(last12Months.isOn)])
+        userRef.setValue(["firstName": cfirstName, "lastName": clastName, "participantNumber": cparticipantNumber, "date": date, "time": time, "highestEducation": chighestEducation])
         
         performSegue(withIdentifier: "UserDataSegue", sender: self)
         
@@ -187,13 +181,12 @@ extension SignInViewController: UITextFieldDelegate {
                 self.lastNameValidationLabel.isHidden = valid
             })
             
-        
-        default:
+        case participantNumberTextField:
             // Validate Text Field
             let (valid, message) = validate(textField)
             
             if valid {
-                participantNumberTextField.becomeFirstResponder()
+                highestEducationTextField.becomeFirstResponder()
             }
             
             // Update Validation Label
@@ -202,6 +195,23 @@ extension SignInViewController: UITextFieldDelegate {
             // Show/Hide Validation Label
             UIView.animate(withDuration: 0.25, animations: {
                 self.participantNumberValidationLabel.isHidden = valid
+            })
+            
+        
+        default:
+            // Validate Text Field
+            let (valid, message) = validate(textField)
+            
+            if valid {
+                highestEducationTextField.becomeFirstResponder()
+            }
+            
+            // Update Validation Label
+            self.highestEducationValidationLabel.text = message
+            
+            // Show/Hide Validation Label
+            UIView.animate(withDuration: 0.25, animations: {
+                self.highestEducationValidationLabel.isHidden = valid
             })
             
         }

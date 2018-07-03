@@ -2,75 +2,115 @@
 //  UserDataViewController.swift
 //  FrontDeskApp
 //
-//  Created by Jon Myer on 6/25/18.
+//  Created by Jon Myer on 7/2/18.
 //  Copyright © 2018 Jonathan Myer. All rights reserved.
 //
 
 import UIKit
+import Firebase
 import FirebaseDatabase
 
 class UserDataViewController: UIViewController {
     var userRef: DatabaseReference?
-    
-
-    @IBOutlet weak var veteranSwitch: UISwitch!
-    @IBOutlet weak var militaryBranch: UITextField!
-    @IBOutlet weak var disabilityPercent: UITextField!
-    @IBOutlet weak var medalSwitch: UISwitch!
-    @IBOutlet weak var medalLabel: UILabel!
-    @IBOutlet weak var activeAfter910Switch: UISwitch!
-    @IBOutlet weak var activeAfter910Label: UILabel!
-    @IBOutlet weak var medalStack: UIStackView!
-    @IBOutlet weak var serviceAfter910Stack: UIStackView!
-    @IBOutlet weak var employedSwitch: UISwitch!
-    @IBOutlet weak var employerName: UITextField!
-    @IBOutlet weak var noticeOfTerminationSwitch: UISwitch!
-    @IBOutlet weak var noticeOfCompanyClosingSwitch: UISwitch!
-    @IBOutlet weak var receivingSwitch: UISwitch!
-    @IBOutlet weak var exhaustedSwitch: UISwitch!
-    @IBOutlet weak var notEligibleSwitch: UISwitch!
-    @IBOutlet weak var didNotApplySwitch: UISwitch!
+    @IBOutlet weak var labelTextField: UILabel!
+    @IBOutlet weak var yesButton: UIButton!
+    @IBOutlet weak var noButton: UIButton!
+    @IBOutlet weak var confirmButton: UIButton!
+    @IBOutlet weak var answerTextField: UITextField!
+    @IBOutlet weak var verificationLabel: UILabel!
+    var questionsRef = Database.database().reference().child("questions").ref
+    var questionsArray: [String] = []
+    var count = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        veteranSwitch.setOn(false, animated: false)
-        veteranDisable()
-        employedSwitch.setOn(false, animated: false)
-        noticeOfTerminationSwitch.setOn(false, animated: false)
-        noticeOfCompanyClosingSwitch.setOn(false, animated: false)
-        medalSwitch.setOn(false, animated: false)
-        activeAfter910Switch.setOn(false, animated: false)
-        receivingSwitch.setOn(false, animated: false)
-        exhaustedSwitch.setOn(false, animated: false)
-        notEligibleSwitch.setOn(false, animated: false)
-        didNotApplySwitch.setOn(false, animated: false)
+        questionsRef.queryOrderedByKey().observeSingleEvent(of: .value, with: { snapshot in
+            if(snapshot.value is NSNull){
+                print("questions cannot be found")
+            } else {
+                for child in snapshot.children.allObjects as! [DataSnapshot] {
+                    let data = child.value  as? String ?? ""
+                    self.questionsArray.append(data)
+                }
+            }
+            self.labelTextField.text = self.questionsArray[self.count]
+            self.answerTextField.isHidden = true
+            self.confirmButton.isHidden = true
+            self.verificationLabel.isHidden = true
+        })
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
+        
     }
     
-    func veteranDisable() {
-        militaryBranch.isHidden = true
-        militaryBranch.sizeToFit()
-        disabilityPercent.isHidden = true
-        disabilityPercent.sizeToFit()
-        medalStack.isHidden = true
-        medalStack.sizeToFit()
-        serviceAfter910Stack.isHidden = true
-        serviceAfter910Stack.sizeToFit()
+    func saveAnswer (answer: String){
+        userRef?.child("answers").updateChildValues(["\(count)":answer])
     }
     
-    func veteranEnable() {
-        militaryBranch.isHidden = false
-        disabilityPercent.isHidden = false
-        medalStack.isHidden = false
-        serviceAfter910Stack.isHidden = false
-    }
+    func updateView(){
+        if count == 40 {
+            //TODO: Seague setup stuffz
+        }
+        self.count += 1
 
+        if self.count == 7 || self.count == 8 || self.count == 12 || self.count == 25 {
+            yesButton.isHidden = true
+            noButton.isHidden = true
+            answerTextField.isHidden = false
+            confirmButton.isHidden = false
+            answerTextField.text = ""
+            answerTextField.placeholder = ""
+            answerTextField.becomeFirstResponder()
+        } else {
+            yesButton.isHidden = false
+            noButton.isHidden = false
+            answerTextField.isHidden = true
+            confirmButton.isHidden = true
+        }
+        self.labelTextField.text = self.questionsArray[self.count]
+    }
+    
+    @IBAction func yesButtonAction(_ sender: Any) {
+        if self.count == 20 || self.count == 21 || self.count == 23 || self.count == 24{
+            yesButton.isHidden = true
+            noButton.isHidden = true
+            answerTextField.isHidden = false
+            confirmButton.isHidden = false
+            answerTextField.text = ""
+            answerTextField.placeholder = "Amount"
+            answerTextField.becomeFirstResponder()
+        } else {
+            saveAnswer(answer: "yes")
+            updateView()
+        }
+
+    }
+    
+    @IBAction func noButtonActon(_ sender: Any) {
+        
+        saveAnswer(answer: "no")
+        if (count == 6){
+            count = 10
+        }
+        updateView()
+
+    }
+    @IBAction func confirmButtonAction(_ sender: Any) {
+        let answer = answerTextField.text
+        if answer!.count == 0 {
+            verificationLabel.isHidden = false
+        } else {
+            verificationLabel.isHidden = true
+            saveAnswer(answer: answer!)
+            updateView()
+        }
+    }
     /*
     // MARK: - Navigation
 
@@ -80,28 +120,8 @@ class UserDataViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    @IBAction func veteranSwitchAction(_ sender: Any) {
-        if veteranSwitch.isOn == true{
-            veteranEnable()
-        } else {
-            veteranDisable()
-        }
-    }
-    @IBAction func ContinueButton(_ sender: Any) {
-        if veteranSwitch.isOn == true {
-            let cmilitaryBranch = militaryBranch.text
-            let cdisabilityPercent = disabilityPercent.text
-            userRef?.child("veteranData").setValue(["veteran": String(veteranSwitch.isOn), "militaryBranch": cmilitaryBranch, "disabilityPercent": cdisabilityPercent, "medal": String(medalSwitch.isOn), "serviceAfter910": String(activeAfter910Switch.isOn)])
-        }
-        let cemployerName = employerName.text
-        userRef?.child("employmentData").setValue(["currentlyEmployed": String(employedSwitch.isOn), "lastOrCurrentEmployer": cemployerName, "noticeOfTermination": String(noticeOfTerminationSwitch.isOn), "noticeOfCompanyClosing": String(noticeOfCompanyClosingSwitch.isOn)])
-        userRef?.child("UCData").setValue(["received": String(receivingSwitch.isOn), "exhausted": String(exhaustedSwitch.isOn), "notEligible": String(notEligibleSwitch.isOn), "didNotApply": String(didNotApplySwitch.isOn)])
-        
-        performSegue(withIdentifier: "OptionsSegue", sender: self)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        if let destinationViewController = segue.destination as? OptionsViewController {
+        if let destinationViewController = segue.destination as? UserDataViewController {
             destinationViewController.userRef = userRef
         }
     }

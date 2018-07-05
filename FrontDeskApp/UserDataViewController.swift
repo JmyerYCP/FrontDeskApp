@@ -50,7 +50,8 @@ class UserDataViewController: UIViewController {
     }
     
     func saveAnswer (answer: String){
-        userRef?.child("answers").updateChildValues(["\(count)":answer])
+        userRef?.child("answersAndQuestions").child("\(count)").updateChildValues(["answer":answer])
+        userRef?.child("answersAndQuestions").child("\(count)").updateChildValues(["question": self.questionsArray[self.count]]);
     }
     
     func updateView(){

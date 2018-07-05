@@ -12,6 +12,7 @@ import FirebaseDatabase
 
 class UserDataViewController: UIViewController {
     var userRef: DatabaseReference?
+    var userQuestionnaire: Bool?
     @IBOutlet weak var labelTextField: UILabel!
     @IBOutlet weak var yesButton: UIButton!
     @IBOutlet weak var noButton: UIButton!
@@ -21,6 +22,7 @@ class UserDataViewController: UIViewController {
     var questionsRef = Database.database().reference().child("questions").ref
     var questionsArray: [String] = []
     var count = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +41,7 @@ class UserDataViewController: UIViewController {
             self.answerTextField.isHidden = true
             self.confirmButton.isHidden = true
             self.verificationLabel.isHidden = true
+            
         })
     }
 
@@ -55,8 +58,21 @@ class UserDataViewController: UIViewController {
     }
     
     func updateView(){
-        if count == 40 {
-            //TODO: Seague setup stuffz
+        if count == 18 && userQuestionnaire == false {
+            let currentDate = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"
+            let currentDateString = formatter.string(from: currentDate)
+            self.userRef?.child("answersAndQuestions").updateChildValues(["questionnaireDate": currentDateString])
+            performSegue(withIdentifier: "toFinishSegue", sender: self)
+        }
+        if count == 39 {
+            let currentDate = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"
+            let currentDateString = formatter.string(from: currentDate)
+            self.userRef?.child("answersAndQuestions").updateChildValues(["questionnaireDate": currentDateString])
+            performSegue(withIdentifier: "toFinishSegue", sender: self)
         }
         self.count += 1
 
@@ -122,7 +138,7 @@ class UserDataViewController: UIViewController {
     }
     */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        if let destinationViewController = segue.destination as? UserDataViewController {
+        if let destinationViewController = segue.destination as? SignInConfirmViewController {
             destinationViewController.userRef = userRef
         }
     }

@@ -61,7 +61,7 @@ class OptionsViewController: UIViewController {
                 
                 for child in snapshot.children.allObjects as! [DataSnapshot] {
                     print("Child: \(child)")
-                    let valueA = child.childSnapshot(forPath: "questionnaire")
+                    let valueA = child.childSnapshot(forPath: "answersAndQuestions")
                     print("Child ValueA: \(valueA)")
                     let valueB = valueA.value as? NSDictionary
                     let questionnaireDateString = valueB?["questionnaireDate"] as? String ?? ""
@@ -92,22 +92,18 @@ class OptionsViewController: UIViewController {
         
         
         //TODO: Do something heree to confirm which appoitment and send a notification to the person. (will require setting up an appoitment system along with admin settings or something).
-        if computerSwitch.isOn == true && userQuestionnaire == true {
-            performSegue(withIdentifier: "questionnaireSegue", sender: self)
-
-        } else{
-            performSegue(withIdentifier: "SignInConfirmSegue", sender: self)
-
+        if userQuestionnaire == true && computerSwitch.isOn == false{
+            userQuestionnaire = false
         }
+        performSegue(withIdentifier: "toDataSegue", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        if let destinationViewController = segue.destination as? SignInConfirmViewController {
+        if let destinationViewController = segue.destination as? UserDataViewController {
             destinationViewController.userRef = userRef
+            destinationViewController.userQuestionnaire = userQuestionnaire
         }
-        else if let destinationViewController = segue.destination as? QuestionnaireViewController {
-            destinationViewController.userRef = userRef
-        }
+       
     }
     
     

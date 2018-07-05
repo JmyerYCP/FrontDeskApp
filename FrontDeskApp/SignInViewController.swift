@@ -122,7 +122,7 @@ class SignInViewController: UIViewController  {
         // enter Data into Database
         userRef.setValue(["firstName": cfirstName, "lastName": clastName, "participantNumber": cparticipantNumber, "date": date, "time": time, "highestEducation": chighestEducation])
         
-        performSegue(withIdentifier: "UserDataSegue", sender: self)
+        performSegue(withIdentifier: "toOptionsSegue", sender: self)
         
         
     }
@@ -137,7 +137,7 @@ class SignInViewController: UIViewController  {
     */
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        if let destinationViewController = segue.destination as? UserDataViewController {
+        if let destinationViewController = segue.destination as? OptionsViewController {
             destinationViewController.userRef = userRef
         }
     }

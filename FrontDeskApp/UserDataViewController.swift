@@ -32,6 +32,7 @@ class UserDataViewController: UIViewController {
             if(snapshot.value is NSNull){
                 print("questions cannot be found")
             } else {
+                // get the question array out of the database.
                 for child in snapshot.children.allObjects as! [DataSnapshot] {
                     let data = child.value  as? String ?? ""
                     self.questionsArray.append(data)
@@ -51,14 +52,15 @@ class UserDataViewController: UIViewController {
         
         
     }
-    
+    // saves the data that is answered after each call along with the quesiton that was being asked.
     func saveAnswer (answer: String){
-        userRef?.child("answersAndQuestions").child("\(count)").updateChildValues(["answer":answer])
-        userRef?.child("answersAndQuestions").child("\(count)").updateChildValues(["question": self.questionsArray[self.count]]);
+        userRef?.child("answersAndQuestions").child("\(count)").updateChildValues(["answer":answer, "question": self.questionsArray[self.count]])
     }
     
+    
+    // updates the view by increasing the count to display the next question
     func updateView(){
-        if count == 18 && userQuestionnaire == false {
+        if count == 18 && userQuestionnaire == false { // this is for if the full questionnaire is not needed.
             let currentDate = Date()
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"
@@ -66,7 +68,7 @@ class UserDataViewController: UIViewController {
             self.userRef?.child("answersAndQuestions").updateChildValues(["questionnaireDate": currentDateString])
             performSegue(withIdentifier: "toFinishSegue", sender: self)
         }
-        if count == 39 {
+        if count == 39 { // kicks out of the loop and sends to next page when the questionnaire ends
             let currentDate = Date()
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZ"
@@ -74,8 +76,9 @@ class UserDataViewController: UIViewController {
             self.userRef?.child("answersAndQuestions").updateChildValues(["questionnaireDate": currentDateString])
             performSegue(withIdentifier: "toFinishSegue", sender: self)
         }
-        self.count += 1
+        self.count += 1 // increase count
 
+        // for specific questions whwere yes/no are not applicable.
         if self.count == 7 || self.count == 8 || self.count == 12 || self.count == 25 {
             yesButton.isHidden = true
             noButton.isHidden = true
@@ -84,15 +87,17 @@ class UserDataViewController: UIViewController {
             answerTextField.text = ""
             answerTextField.placeholder = ""
             answerTextField.becomeFirstResponder()
-        } else {
+        } else { // switch back to yes/no if not one of the previous nubmers.
             yesButton.isHidden = false
             noButton.isHidden = false
             answerTextField.isHidden = true
             confirmButton.isHidden = true
         }
+        // updates the view to show the next question.
         self.labelTextField.text = self.questionsArray[self.count]
     }
     
+    // activated when the yes button is clicked
     @IBAction func yesButtonAction(_ sender: Any) {
         if self.count == 20 || self.count == 21 || self.count == 23 || self.count == 24{
             yesButton.isHidden = true
@@ -109,6 +114,7 @@ class UserDataViewController: UIViewController {
 
     }
     
+    // activated when the no button is clicked
     @IBAction func noButtonActon(_ sender: Any) {
         
         saveAnswer(answer: "no")
@@ -118,6 +124,8 @@ class UserDataViewController: UIViewController {
         updateView()
 
     }
+    
+    // activated when the confirm button is clicked
     @IBAction func confirmButtonAction(_ sender: Any) {
         let answer = answerTextField.text
         if answer!.count == 0 {

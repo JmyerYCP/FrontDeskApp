@@ -446,22 +446,22 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="IUm-6P-w0E">
-                                <rect key="frame" x="246" y="560.5" width="532.5" height="245"/>
+                                <rect key="frame" x="226.5" y="560.5" width="572.5" height="245"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to PA CareerLink" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="93f-gk-qdo">
-                                        <rect key="frame" x="0.0" y="0.0" width="532.5" height="54"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to PA CareerLink℠" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="93f-gk-qdo">
+                                        <rect key="frame" x="0.0" y="0.0" width="572.5" height="54"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="45"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How can we help you today?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2d-GN-g71">
-                                        <rect key="frame" x="0.0" y="74" width="532.5" height="39.5"/>
+                                        <rect key="frame" x="0.0" y="74" width="572.5" height="39.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="33"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6X-GE-nOC">
-                                        <rect key="frame" x="0.0" y="142.5" width="532.5" height="36"/>
+                                        <rect key="frame" x="0.0" y="142.5" width="572.5" height="36"/>
                                         <color key="backgroundColor" red="0.49440578239999999" green="0.55975614269999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Sign In">
@@ -472,7 +472,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RSz-l7-C7T">
-                                        <rect key="frame" x="0.0" y="209" width="532.5" height="36"/>
+                                        <rect key="frame" x="0.0" y="209" width="572.5" height="36"/>
                                         <color key="backgroundColor" red="0.49440578239999999" green="0.55975614269999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Sign Out">

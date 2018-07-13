@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -385,11 +386,73 @@
                         <outlet property="computerSwitch" destination="Xql-On-gjm" id="f12-rk-98U"/>
                         <outlet property="faxSwitch" destination="ljz-Up-Tjn" id="0dj-2a-SRR"/>
                         <segue destination="EqE-yA-4bs" kind="presentation" identifier="toDataSegue" id="xqP-xj-xLC"/>
+                        <segue destination="vV5-AK-BHf" kind="presentation" identifier="toAppointmentSegue" id="Wz0-0s-7Bn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2TR-G8-syx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1528" y="196"/>
+        </scene>
+        <!--Appointment Table View Controller-->
+        <scene sceneID="WzD-ei-q6J">
+            <objects>
+                <tableViewController id="vV5-AK-BHf" customClass="AppointmentTableViewController" customModule="FrontDeskApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="iAG-pQ-eJD">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LabelCell" id="4MI-4U-sx6" customClass="AppointmentTableViewCell" customModule="FrontDeskApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="1024" height="52"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4MI-4U-sx6" id="0Qh-XU-cLW">
+                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="51.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Pq-ch-j6C">
+                                            <rect key="frame" x="20" y="1.5" width="94" height="48"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9q-Yv-1O0">
+                                            <rect key="frame" x="774" y="0.0" width="250" height="51.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="250" id="egP-bx-H55"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                            <state key="normal" title="Register"/>
+                                            <connections>
+                                                <action selector="buttonTappedWithSender:" destination="4MI-4U-sx6" eventType="touchUpInside" id="VQE-TR-WO5"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="o9q-Yv-1O0" firstAttribute="top" secondItem="0Qh-XU-cLW" secondAttribute="top" id="1bH-MI-6bB"/>
+                                        <constraint firstItem="8Pq-ch-j6C" firstAttribute="centerY" secondItem="0Qh-XU-cLW" secondAttribute="centerY" id="4k8-5Y-4cd"/>
+                                        <constraint firstAttribute="bottom" secondItem="o9q-Yv-1O0" secondAttribute="bottom" id="57I-6d-Qdp"/>
+                                        <constraint firstAttribute="trailing" secondItem="o9q-Yv-1O0" secondAttribute="trailing" id="XPm-GG-Nxp"/>
+                                        <constraint firstItem="8Pq-ch-j6C" firstAttribute="leading" secondItem="0Qh-XU-cLW" secondAttribute="leadingMargin" id="rpT-o6-Cvf"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="button" destination="o9q-Yv-1O0" id="QJF-eW-DhU"/>
+                                    <outlet property="label" destination="8Pq-ch-j6C" id="a2W-MT-Oc0"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="vV5-AK-BHf" id="wqk-nf-Nq9"/>
+                            <outlet property="delegate" destination="vV5-AK-BHf" id="yK0-ga-C3N"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UJv-nK-7Z9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1528" y="861"/>
         </scene>
         <!--Sign In Confirm View Controller-->
         <scene sceneID="2rO-wg-hyc">

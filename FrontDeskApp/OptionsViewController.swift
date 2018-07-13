@@ -92,10 +92,12 @@ class OptionsViewController: UIViewController {
         
         
         //TODO: Do something heree to confirm which appoitment and send a notification to the person. (will require setting up an appoitment system along with admin settings or something).
-        if userQuestionnaire == true && computerSwitch.isOn == false{
-            userQuestionnaire = false
+        if computerSwitch.isOn == true{
+            performSegue(withIdentifier: "toDataSegue", sender: self)
+        } else if (appointmentSwitch.isOn == true){
+            performSegue(withIdentifier: "toAppointmentSegue", sender: self)
         }
-        performSegue(withIdentifier: "toDataSegue", sender: self)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){

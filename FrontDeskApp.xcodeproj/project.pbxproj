@@ -18,6 +18,7 @@
 		FB9C74D420DADF060058E49D /* FrontDeskAppTests in Resources */ = {isa = PBXBuildFile; fileRef = FB9C74CC20DADF030058E49D /* FrontDeskAppTests */; };
 		FB9C74D520DADF060058E49D /* Sources in Resources */ = {isa = PBXBuildFile; fileRef = FB9C74CD20DADF040058E49D /* Sources */; };
 		FB9C74D620DADF060058E49D /* FrontDeskAppUITests in Resources */ = {isa = PBXBuildFile; fileRef = FB9C74CE20DADF050058E49D /* FrontDeskAppUITests */; };
+		FBAC159820F637D300AF1CEC /* AppointmentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAC159720F637D300AF1CEC /* AppointmentTableViewController.swift */; };
 		FBC7357920EAB2920047B935 /* UserDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC7357820EAB2920047B935 /* UserDataViewController.swift */; };
 		FBCE798420E11E6A0042C070 /* SignInConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCE798320E11E6A0042C070 /* SignInConfirmViewController.swift */; };
 		FBDC3E3720D9860300D7928E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDC3E3620D9860300D7928E /* AppDelegate.swift */; };
@@ -62,6 +63,7 @@
 		FB9C74CD20DADF040058E49D /* Sources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sources; sourceTree = "<group>"; };
 		FB9C74CE20DADF050058E49D /* FrontDeskAppUITests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FrontDeskAppUITests; sourceTree = "<group>"; };
 		FB9C74D720DAE93A0058E49D /* FrontDeskApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FrontDeskApp.entitlements; sourceTree = "<group>"; };
+		FBAC159720F637D300AF1CEC /* AppointmentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentTableViewController.swift; sourceTree = "<group>"; };
 		FBC7357820EAB2920047B935 /* UserDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataViewController.swift; sourceTree = "<group>"; };
 		FBCE798320E11E6A0042C070 /* SignInConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInConfirmViewController.swift; sourceTree = "<group>"; };
 		FBDC3E3320D9860300D7928E /* FrontDeskApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FrontDeskApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +172,7 @@
 				FB993A6320DAA27F00BA10B6 /* User.swift */,
 				FBCE798320E11E6A0042C070 /* SignInConfirmViewController.swift */,
 				FBC7357820EAB2920047B935 /* UserDataViewController.swift */,
+				FBAC159720F637D300AF1CEC /* AppointmentTableViewController.swift */,
 			);
 			path = FrontDeskApp;
 			sourceTree = "<group>";
@@ -387,6 +390,7 @@
 				FB97B98A20DC3C4600E33D7D /* OptionsViewController.swift in Sources */,
 				FBCE798420E11E6A0042C070 /* SignInConfirmViewController.swift in Sources */,
 				FBDC3E3920D9860300D7928E /* WelcomeViewController.swift in Sources */,
+				FBAC159820F637D300AF1CEC /* AppointmentTableViewController.swift in Sources */,
 				FBDC3E3720D9860300D7928E /* AppDelegate.swift in Sources */,
 				FBC7357920EAB2920047B935 /* UserDataViewController.swift in Sources */,
 			);

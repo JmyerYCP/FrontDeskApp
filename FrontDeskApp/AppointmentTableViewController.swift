@@ -133,7 +133,11 @@ class AppointmentTableViewController: UITableViewController, CustomCellDelegate 
     func cellButtonTapped(cell: AppointmentTableViewCell) {
         let indexPath = self.tableView.indexPathForRow(at: cell.center)!.row
         print("this button is number: \(indexPath)")
-        rootRef.child("Appointments").child(keyArray[indexPath]).updateChildValues(["arrived": "true"])
+    rootRef.child("Appointments").child(keyArray[indexPath]).updateChildValues(["arrived": "true"])
+        
+
+        rootRef.child("AppointmentCheckIn").setValue(["key": keyArray[indexPath]])
+        
         
         performSegue(withIdentifier: "appointmentsToConfirmSegue", sender: self)
     }

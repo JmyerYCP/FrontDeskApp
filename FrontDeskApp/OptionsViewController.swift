@@ -96,6 +96,8 @@ class OptionsViewController: UIViewController {
             performSegue(withIdentifier: "toDataSegue", sender: self)
         } else if (appointmentSwitch.isOn == true){
             performSegue(withIdentifier: "toAppointmentSegue", sender: self)
+        } else {
+            performSegue(withIdentifier: "optionsToConfirmSegue", sender: self)
         }
         
     }

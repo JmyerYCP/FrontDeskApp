@@ -112,7 +112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uU3-f6-DiE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2265" y="196"/>
+            <point key="canvasLocation" x="2241" y="-152"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="d9q-M9-paQ">
@@ -387,6 +387,7 @@
                         <outlet property="faxSwitch" destination="ljz-Up-Tjn" id="0dj-2a-SRR"/>
                         <segue destination="EqE-yA-4bs" kind="presentation" identifier="toDataSegue" id="xqP-xj-xLC"/>
                         <segue destination="vV5-AK-BHf" kind="presentation" identifier="toAppointmentSegue" id="Wz0-0s-7Bn"/>
+                        <segue destination="FQd-hZ-y22" kind="presentation" identifier="optionsToConfirmSegue" id="5CE-nC-ine"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2TR-G8-syx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -449,6 +450,9 @@
                             <outlet property="delegate" destination="vV5-AK-BHf" id="yK0-ga-C3N"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="FQd-hZ-y22" kind="presentation" identifier="appointmentsToConfirmSegue" id="zK1-cS-cnF"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UJv-nK-7Z9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -509,22 +513,22 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="IUm-6P-w0E">
-                                <rect key="frame" x="226.5" y="560.5" width="572.5" height="245"/>
+                                <rect key="frame" x="233.5" y="560.5" width="558.5" height="245"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to PA CareerLink℠" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="93f-gk-qdo">
-                                        <rect key="frame" x="0.0" y="0.0" width="572.5" height="54"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to PA CareerLink®" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="93f-gk-qdo">
+                                        <rect key="frame" x="0.0" y="0.0" width="558.5" height="54"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="45"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How can we help you today?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2d-GN-g71">
-                                        <rect key="frame" x="0.0" y="74" width="572.5" height="39.5"/>
+                                        <rect key="frame" x="0.0" y="74" width="558.5" height="39.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="33"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a6X-GE-nOC">
-                                        <rect key="frame" x="0.0" y="142.5" width="572.5" height="36"/>
+                                        <rect key="frame" x="0.0" y="142.5" width="558.5" height="36"/>
                                         <color key="backgroundColor" red="0.49440578239999999" green="0.55975614269999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Sign In">
@@ -535,7 +539,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RSz-l7-C7T">
-                                        <rect key="frame" x="0.0" y="209" width="572.5" height="36"/>
+                                        <rect key="frame" x="0.0" y="209" width="558.5" height="36"/>
                                         <color key="backgroundColor" red="0.49440578239999999" green="0.55975614269999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Sign Out">
@@ -561,4 +565,7 @@
             <point key="canvasLocation" x="91" y="196"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="5CE-nC-ine"/>
+    </inferredMetricsTieBreakers>
 </document>

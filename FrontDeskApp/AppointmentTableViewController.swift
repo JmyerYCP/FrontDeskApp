@@ -73,11 +73,10 @@ class AppointmentTableViewController: UITableViewController, CustomCellDelegate 
         
         
         cell.delegate = self
-        let guestName = appointmentArray[indexPath.row][2]
         let hostName = appointmentArray[indexPath.row][5]
         let time = appointmentArray[indexPath.row][6]
         
-        let message = "\(guestName) for \(hostName) at \(time)."
+        let message = "\(hostName) at \(time)."
         cell.label?.text = message
         self.buttonArray.append(cell.button)
         cell.index? = indexPath.row

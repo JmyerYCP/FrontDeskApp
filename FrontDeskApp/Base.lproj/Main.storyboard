@@ -318,7 +318,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ef-TH-QOZ">
                                         <rect key="frame" x="0.0" y="121" width="964" height="31"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I need to us the Unemployment Phones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cwa-XB-j42">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I need to use the Unemployment Phones" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cwa-XB-j42">
                                                 <rect key="frame" x="0.0" y="0.0" width="915" height="31"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                                 <nil key="textColor"/>
@@ -418,11 +418,14 @@
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9q-Yv-1O0">
                                             <rect key="frame" x="774" y="0.0" width="250" height="51.5"/>
+                                            <color key="backgroundColor" red="0.49440578239999999" green="0.55975614269999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="250" id="egP-bx-H55"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                            <state key="normal" title="Register"/>
+                                            <state key="normal" title="Check In">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
                                             <connections>
                                                 <action selector="buttonTappedWithSender:" destination="4MI-4U-sx6" eventType="touchUpInside" id="VQE-TR-WO5"/>
                                             </connections>
@@ -566,6 +569,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="zK1-cS-cnF"/>
+        <segue reference="5CE-nC-ine"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -7,4 +7,6 @@ target 'FrontDeskApp' do
 pod 'SQLite.swift', '~> 0.11.5'
 pod 'Firebase/Core'
 pod 'Firebase/Database'
+pod 'Firebase/Auth'
+pod 'Firebase/Functions'
 end

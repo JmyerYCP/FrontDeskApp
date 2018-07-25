@@ -8,7 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
-
+import FirebaseFunctions
 
 protocol CustomCellDelegate {
     func cellButtonTapped(cell: AppointmentTableViewCell)
@@ -36,10 +36,11 @@ class AppointmentTableViewController: UITableViewController, CustomCellDelegate 
     var buttonArray: [UIButton] = []
     var selectedItems = [String]()
     var keyArray = [String]()
+    lazy var functions = Functions.functions()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getAppointmentData()
+        getStaffData()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -73,10 +74,10 @@ class AppointmentTableViewController: UITableViewController, CustomCellDelegate 
         
         
         cell.delegate = self
-        let hostName = appointmentArray[indexPath.row][5]
-        let time = appointmentArray[indexPath.row][6]
+        let hostName = appointmentArray[indexPath.row][0]
         
-        let message = "\(hostName) at \(time)."
+        
+        let message = "\(hostName)"
         cell.label?.text = message
         self.buttonArray.append(cell.button)
         cell.index? = indexPath.row
@@ -132,27 +133,28 @@ class AppointmentTableViewController: UITableViewController, CustomCellDelegate 
     func cellButtonTapped(cell: AppointmentTableViewCell) {
         let indexPath = self.tableView.indexPathForRow(at: cell.center)!.row
         print("this button is number: \(indexPath)")
-    rootRef.child("Appointments").child(keyArray[indexPath]).updateChildValues(["arrived": "true"])
-        
-
-        rootRef.child("AppointmentCheckIn").setValue(["key": keyArray[indexPath]])
+        let uID = appointmentArray[indexPath][1]
+        functions.httpsCallable("appointmentCheckIn").call(["text": uID]) { (result, error) in
+            if let error = error as NSError? {
+                if error.domain == FunctionsErrorDomain {
+                    let code = FunctionsErrorCode(rawValue: error.code)
+                    let message = error.localizedDescription
+                    let details = error.userInfo[FunctionsErrorDetailsKey]
+                }
+            }
+        }
         
         
         performSegue(withIdentifier: "appointmentsToConfirmSegue", sender: self)
     }
     
-    func getAppointmentData(){
-        let currentDate = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy'-'MM'-'dd"
-        let today = dateFormatter.string(from: currentDate)
-        print("Today's Date is: \(today)")
-        rootRef.child("Appointments").queryOrdered(byChild: "date").queryEqual(toValue: today).observeSingleEvent(of: .value, with: { snapshot in
+    func getStaffData(){
+        rootRef.child("staffInfo").observeSingleEvent(of: .value, with: { snapshot in
             for child in snapshot.children.allObjects as! [DataSnapshot] {
                 for childchild in child.children.allObjects as! [DataSnapshot]{
                     self.innerArray.append(childchild.value as? String ?? "")
                 }
-                self.keyArray.append(child.key as? String ?? "")
+                self.innerArray.append(child.key)
                 self.appointmentArray.append(self.innerArray)
                 self.innerArray = []
             }
